@@ -1,0 +1,16 @@
+{
+  "name": "test-widget-feedback",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "open": "npx cypress open",
+    "run": "npx cypress run"
+  },
+  "author": "Samuel Ventura",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^10.3.1",
+    "typescript": "^4.7.4"
+  }
+}
