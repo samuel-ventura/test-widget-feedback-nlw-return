@@ -15,7 +15,7 @@ describe('Home', () => {
     cy.get('span[class="text-xl leading-6"]').should('have.text', 'Deixe seu feedback')
   })
 
-  context('Open Issues Form', ()=> {
+  context('Open Issues Forms', ()=> {  
     before(() => {
       widget.validAccess()
       widget.clickButtonWidget()
@@ -30,6 +30,31 @@ describe('Home', () => {
         widget.openIssueForm(issue.value, issue.name)
       })
     })
+  })
+
+  it('should not be possible to send a feedback without a description', () => {
+    widget.validAccess()
+    widget.clickButtonWidget()
+    widget.openIssueForm(issues[0].value, issues[0].name)
+    widget.validateButton('be.disabled')
+  })
+
+  it('should change the camera icon when clicked for take a screenshot', () => {
+    widget.validAccess()
+    widget.clickButtonWidget()
+    widget.openIssueForm(issues[1].value, issues[1].name)
+    widget.validateChangeScreenshotIcon()
+  })
+
+  it('should be possible to send a feedback', () => {
+    let typeIssueOnForm = 'Tive um problema com o pagamento'
+    widget.validAccess()
+    widget.clickButtonWidget()
+    widget.openIssueForm(issues[2].value, issues[2].name)
+    widget.typeInForm(typeIssueOnForm)
+    widget.validateButton('be.enabled')
+    widget.sendFeedback()
+    widget.validateModalFeedbackSuccess()
   })
 
 })
