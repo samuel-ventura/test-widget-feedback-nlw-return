@@ -57,4 +57,10 @@ describe('Home', () => {
     widget.validateModalFeedbackSuccess()
   })
 
+  it('should be possible to close the widget', () => {
+    widget.validAccess()
+    widget.clickButtonWidget()
+    widget.closeWidget()
+    cy.get('div[id="headlessui-popover-panel-:r1:"]').should('not.exist')
+  })
 })

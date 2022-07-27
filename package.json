@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "open": "npx cypress open",
-    "run": "npx cypress run"
+    "test": "npx cypress run"
   },
   "author": "Samuel Ventura",
   "license": "MIT",

@@ -34,10 +34,13 @@ class Widget {
     cy.get('textarea').type(text)
   }
 
-  async sendFeedback() {
+  sendFeedback() {
     cy.get('button[type="submit"]').click()
   }
 
+  closeWidget() {
+    cy.get('button[class="top-5 right-5 absolute text-zinc-400 hover:text-zinc-100"]').click() 
+  }
 
   validateModalFeedbackSuccess() {
     let classButton = "py-2 px-6 mt-6 bg-zinc-800 rounded-md border-transparent text-sm leading-6 hover:bg-zinc-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500"
